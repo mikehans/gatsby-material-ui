@@ -1,7 +1,13 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "Gatsby Material UI Tester",
+    title: `Mike Hansford`,
+    siteUrl: `https://mikehansford.id.au`,
+    description: `Mike Hansford's software development blog.`,
+    author: `Mike Hansford`,
+    subtitle: `Web development, Microsoft 365, Power Platform`,
+    linkedIn: `linkedin.com/in/mikehansford`,
+    twitter: `twitter.com/mikehansford10`,
+    github: `github.com/mikehans`
   },
   plugins: [
     "gatsby-plugin-netlify-cms",
