@@ -5,9 +5,9 @@ module.exports = {
     description: `Mike Hansford's software development blog.`,
     author: `Mike Hansford`,
     subtitle: `Web development, Microsoft 365, Power Platform`,
-    linkedIn: `linkedin.com/in/mikehansford`,
-    twitter: `twitter.com/mikehansford10`,
-    github: `github.com/mikehans`
+    linkedIn: `https://linkedin.com/in/mikehansford`,
+    twitter: `https://twitter.com/mikehansford10`,
+    github: `https://github.com/mikehans`
   },
   plugins: [
     "gatsby-plugin-netlify-cms",

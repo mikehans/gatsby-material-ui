@@ -1,17 +1,15 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link as GatsbyLink } from "gatsby";
 import {
   AppBar,
   IconButton,
   Button,
   Typography,
   Toolbar,
+  Link,
 } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import MainMenu from "./MainMenu";
-
-// import * as styles from "./Header.module.scss";
-
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -27,7 +25,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function Header({ siteTitle, description}) {
+export default function Header({ siteTitle }) {
   const classes = useStyles();
 
   return (
@@ -35,13 +33,10 @@ export default function Header({ siteTitle, description}) {
       <Toolbar>
         <MainMenu />
         <Typography variant="h6" component="span" className={classes.title}>
-          {siteTitle}
+          <Link component={GatsbyLink} to="/" color="inherit">
+            {siteTitle}
+          </Link>
         </Typography>
-        {/* <Typography variant="h6" component="span" className={classes.title}>
-          {description}
-        </Typography> */}
-        <Button color="inherit">Login</Button>
-        <Button color="inherit">Button</Button>
       </Toolbar>
     </AppBar>
   );

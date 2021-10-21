@@ -26,7 +26,6 @@ export default function Layout({children}) {
                     <CssBaseline />
                     <Header 
                         siteTitle={data.site.siteMetadata?.title || `Title`}
-                        description={data.site.siteMetadata?.description || ``}
                     />
 
                     {children}

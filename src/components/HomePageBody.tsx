@@ -2,6 +2,8 @@ import { Box, Grid, Paper, Typography, Button, Link } from "@material-ui/core";
 import { StayPrimaryLandscape } from "@material-ui/icons";
 import { Link as GatsbyLink } from "gatsby";
 import React from "react";
+import Hero from "./Hero";
+import HeroBox from "./HeroBox";
 
 function HomePageBody( data ) {
     const {title, subtitle} = data;
@@ -14,6 +16,9 @@ function HomePageBody( data ) {
          {subtitle}
         </Typography>
       </Box>
+
+      <Hero />
+      <HeroBox />
 
       <Grid container spacing={2}>
       <Grid item xs={12}>

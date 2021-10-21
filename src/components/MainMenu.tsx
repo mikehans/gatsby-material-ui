@@ -1,7 +1,15 @@
 import React from "react";
-import { IconButton, Menu, MenuItem } from "@material-ui/core";
+import {
+  IconButton,
+  Drawer,
+  List,
+  ListItemText,
+  ListItem,
+  Link,
+} from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Menu as MenuIcon } from "@material-ui/icons";
+import { Link as GatsbyLink } from "gatsby";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -18,16 +26,16 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default function MainMenu() {
-  const [isOpen, setIsOpen] = React.useState<null | HTMLElement>(null);
+  const [isDrawerOpen, setDrawerOpen] = React.useState(null);
   const classes = useStyles();
 
   const handleMenuClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setIsOpen(event.currentTarget);
+    setDrawerOpen(event.currentTarget);
   };
 
-  const handleMenuClose = () => {
-    setIsOpen(null);
-  }
+  const handleDrawerClose = () => {
+    setDrawerOpen(null);
+  };
 
   return (
     <>
@@ -38,14 +46,35 @@ export default function MainMenu() {
         aria-label="menu"
         onClick={handleMenuClick}
       >
-        <MenuIcon/>
+        <MenuIcon />
       </IconButton>
 
-      <Menu open={Boolean(isOpen)} onClose={handleMenuClose}>
-          <MenuItem>One</MenuItem>
-          <MenuItem>Two</MenuItem>
-          <MenuItem>Three</MenuItem>
-      </Menu>
+      <Drawer open={isDrawerOpen} onClose={handleDrawerClose}>
+        <nav>
+          <List>
+            <ListItem>
+              <Link to="/" component={GatsbyLink}>
+                <ListItemText primary="Home" secondary="Go home" />
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link to="/blog" component={GatsbyLink}>
+                <ListItemText primary="Blog" secondary="My tech blog" />
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link to="/projects" component={GatsbyLink}>
+                <ListItemText primary="Projects" secondary="Tech projects" />
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link to="/other-interests" component={GatsbyLink}>
+                <ListItemText primary="Other interests" secondary="Woodwork, gardening, electronics, ..." />
+              </Link>
+            </ListItem>
+          </List>
+        </nav>
+      </Drawer>
     </>
   );
 }
